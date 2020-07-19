@@ -1,0 +1,33 @@
+{%extends "P2S/base.html"%}
+{%load static%}
+{%block content%}
+<br>
+	<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    	<form method="POST">
+		{% csrf_token %}
+    	<p class="lead"><u>Enter Url To Summarize</u></p>
+    	<input type="text" name="URL" style="border: 1px solid #C7EA46;
+    	box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);">
+    	<p class="lead"><u>Enter Paragraph To Summarize</u></p>
+		
+		<textarea class="form-control" style="border: 1px solid #C7EA46;
+    	box-shadow: 0 0 0 0.2rem rgba(139, 195, 74, .25);" name="Paragraph" cols="30" rows="10"></textarea>
+		<br>
+		<input type="submit" value="Summarize" class="btn mb-4">
+	</form>
+    </div>
+    <div class="col-sm">
+    	<p class="lead"><u>{{Stat}}</u></p>
+    	<p><em>{{PercA}}{{PercV}}</em></p>
+    	<p><em>{{WordA}}{{WordV}}{{Of}}{{ParaW}}</em></p>
+    	<p><em>{{TimeA}}{{TimeV}}</em></p>
+    </div>
+  </div>
+</div>
+	<div class="container">
+		<p class="lead"><u>{{Head}}</u></p>
+		<p><em>{{Summ}}</em></p>
+	</div>
+{%endblock content%}
